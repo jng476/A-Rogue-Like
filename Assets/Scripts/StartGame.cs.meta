@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 96d07b9909679874c9e64a16b4c15f38
+timeCreated: 1519497317
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - room: {fileID: 1244949749233504, guid: 629e762606cdd5f4ea973eaa48255970, type: 2}
+  - rightDoor: {fileID: 1554937575720256, guid: 2e35e392f5907f347ab9d8a6d89941ac,
+      type: 2}
+  - leftDoor: {fileID: 1392072167967140, guid: e78b865a5220b104fb0864a00c39bf62, type: 2}
+  - upDoor: {fileID: 1069150975965098, guid: 263ef472801bc9049a40b67acb4404d3, type: 2}
+  - downDoor: {fileID: 1332606841339590, guid: 31b23d4df24dcd44b9831f020dfcb68a, type: 2}
+  - Player: {fileID: 1813854760277856, guid: b5e785bc7ce40874caad4adc9afe34d1, type: 2}
+  - Ladder: {fileID: 1468407536245012, guid: 275ca47e334971f4ca80064f4c0e5ce5, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

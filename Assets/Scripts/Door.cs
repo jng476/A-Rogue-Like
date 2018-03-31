@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
-	public float transformx;
-	public float transformy;
-	public float transcamx;
-	public float transcamy;
-	bool can_Open = true;
+	public float transformx; //How far will the player transport in the x axis
+	public float transformy; //How far will the player transport in the y axis
+	public float transcamx; //How far will the camera transport in the x axis
+	public float transcamy; //How far will the camera transport in the y axis
+
+	bool can_Open = true; 
+
+	// When Object Collides
 	void OnTriggerEnter2D(Collider2D other) 
 	{
-		float x = other.gameObject.transform.position.x;
-		float y = other.gameObject.transform.position.y;
-		float camx = Camera.main.transform.position.x;
-		float camy = Camera.main.transform.position.y;
-
-		Debug.Log (other.tag);
-		if (!can_Open)
+		if (!can_Open) //If you can't open door cancel.
 			return;
-		
+
+		//checks if the player touches door
 		if (can_Open == true && other.CompareTag ("Player")) {
-			can_Open = false;
-			Door_Delay ();
-			other.gameObject.transform.position = new Vector3 (x + transformx, y + transformy, 0);
-			Camera.main.transform.position = new Vector3 (camx + transcamx, camy + transcamy, -2);
-			can_Open = true;
+			float x = other.gameObject.transform.position.x; //Gets Players x position
+			float y = other.gameObject.transform.position.y; //Gets Players y Position
+			float camx = Camera.main.transform.position.x; //Gets Camera's x position
+			float camy = Camera.main.transform.position.y; //Gets Camera's y position
+			can_Open = false; // Lock the Door
+			other.gameObject.transform.position = new Vector3 (x + transformx, y + transformy, 0); //Transport player to next room
+			Camera.main.transform.position = new Vector3 (camx + transcamx, camy + transcamy, -2); //Move Camera to next room.
+			can_Open = true; //Unlock the door
 		}
 
-	}
-	IEnumerator Door_Delay() {
-		yield return new WaitForSeconds(0.5f);
 	}
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class spitControl : MonoBehaviour {
 
-	public Vector2 speed;
-	Rigidbody2D spit;
-	// Use this for initialization
+	public Vector2 speed; //players projectile fire speed.
+	Rigidbody2D spit; //Prefab of projectile.
+	//Gets component and sets speed of how fast to move.
 	void Start () {
 		spit = GetComponent<Rigidbody2D>();
 		spit.velocity = speed;

@@ -11,7 +11,8 @@ public class StartGame : MonoBehaviour {
 	public GameObject downDoor;
 	public GameObject Player; //Player Prefab
 	public GameObject Ladder; //Ladders for next level 
-	public GameObject Enemy;//Enemy Prefab
+	public GameObject[] Enemy;//Enemy Prefab
+	public GameObject boss;
 	int room_Counter = 0; //Counter to keep count of rooms.
 	int num_Of_Rooms; //How many Rooms in the level.
 	Vector3[] roomPos; //Keeps the Position Of every Room.
@@ -19,7 +20,7 @@ public class StartGame : MonoBehaviour {
 
 	// Starts the Game
 	void Start () {
-		Instantiate (room, new Vector3 (0f, 0f, 0f), Quaternion.identity);
+		//Instantiate (room, new Vector3 (0f, 0f, 0f), Quaternion.identity);
 		Instantiate(Player, new Vector3(0f, 0f, 0f), Quaternion.identity); //Spawns the Player.
 		level = 1;
 		Create_Level(); 
@@ -52,10 +53,9 @@ public class StartGame : MonoBehaviour {
 		bool dirTaken; //boolean to check if the direction has been taken.
 		//For loop to create door.
 		for (int i = 0; i < num_Of_Doors; i++) {
-			Debug.Log ("This is stil the preDir " + currentdoors [0]);
 			do {
 				dirTaken = false; //Sets taken direction to false.
-				dir = Random.Range (1, 4); //Picks a random Direction.
+				dir = Random.Range (0, 5); //Picks a random Direction.
 				//Checks if direction has been taken.
 				for (int j = 0; j < currentdoors.Length; j++) {
 					if (dir == currentdoors[j]) {
@@ -96,20 +96,22 @@ public class StartGame : MonoBehaviour {
 		}
 	}
 	//Creates new level.
-	public void next_Level(){
-		Debug.Log ("Destroying Doors"); //Destroys all objects.
+	public void next_Level(){ 
+		//Destroys all objects.
 		destroy_Objects ("Door");
-		Debug.Log ("Destroyed Doors");
 		destroy_Objects ("Room");
-		Debug.Log ("Starting new level");
 		destroy_Objects ("Ladder");
-		Debug.Log("Destroying Ladders");
 		destroy_Objects ("Enemy");
 		level++;
-		if (level == 3) {
+		if (level == 5) {
 			SceneManager.LoadScene ("Winning");
 		}
-		Create_Level(); //Creates new level.
+		else if (level < 4) {
+			Create_Level (); //Creates new level.
+		} else {
+			Instantiate (room, new Vector2 (0, 0), Quaternion.identity);
+			Instantiate (boss, new Vector2 (3, 0), Quaternion.identity);
+		}
 		GameObject player = GameObject.FindGameObjectWithTag ("Player"); //Sets player to starting position.
 		player.transform.position = new Vector3 (0f, 0f, 0f);
 		Camera.main.transform.position = new Vector3 (0f, 0f, -2f); //Sets Camera to starting position.
@@ -151,11 +153,17 @@ public class StartGame : MonoBehaviour {
 			for (int i = 1; i < amountOfEnemies; i++) {
 				float randomX = Random.Range (roomPos [num].x - 2, roomPos [num].x + 2);
 				float randomy = Random.Range (roomPos [num].y - 2, roomPos [num].y + 2);
-				GameObject newEnemy = Instantiate(Enemy, new Vector3(randomX, randomy, 0), Quaternion.identity);
-				EnemyMovement script = newEnemy.GetComponent<EnemyMovement>();
+				GameObject newEnemy = Instantiate(Enemy[0], new Vector3(randomX, randomy, 0), Quaternion.identity);
+				Debug.Log ("Created New Enemy");
+				EnemyMovement script = newEnemy.GetComponent<EnemyMovement> ();
 				script.SetRoom (new Vector3(roomPos [num].x, roomPos [num].y, roomPos [num].z));
 				script.SetSpawn (new Vector3(randomX, randomy, 0));
 			}
 		}
+	}
+
+	void BossBattle(){
+
+
 	}
 }

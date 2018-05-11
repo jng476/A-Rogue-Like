@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231c0914f35a29f4ea833c51326cf6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.4
 --- !u!114 &114878498397175710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213679ed2b2c52242992a19d834ad561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 0
+  enemyHealth: 3
 --- !u!212 &212472896937106618
 SpriteRenderer:
   m_ObjectHideFlags: 1

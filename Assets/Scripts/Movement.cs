@@ -22,7 +22,6 @@ public class Movement : MonoBehaviour {
 		anime.SetFloat ("yValue", moveVertical); //Sets value is player is move in the y axis.
 		//checks if the player wants to move.
 		if (moveHorizontal != 0 || moveVertical != 0) {
-			Vector2 movement = new Vector2 (Mathf.Round(moveHorizontal), Mathf.Round(moveVertical));
 			player.velocity = new Vector2(moveHorizontal*speed, moveVertical*speed); //moves player
 		} else {
 			//if no input has been pressed stay still.

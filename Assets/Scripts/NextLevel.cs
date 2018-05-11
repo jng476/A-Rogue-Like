@@ -16,7 +16,6 @@ public class NextLevel : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		
-		StartGame game = new StartGame();
 		if ( other.CompareTag ("Player")) {
 			Camera.main.GetComponent<StartGame>().next_Level();
 

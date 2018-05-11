@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114940132821596924}
   - component: {fileID: 61495780769280110}
   - component: {fileID: 114231041619706034}
-  m_Layer: 0
+  - component: {fileID: 114280971713671342}
+  m_Layer: 8
   m_Name: spitDown
   m_TagString: Spit
   m_Icon: {fileID: 0}
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c16515d9b10d6f74b8a86810b7beb600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!114 &114280971713671342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1307522015980128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a57f522e5424b4bbff55293e65b8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114940132821596924

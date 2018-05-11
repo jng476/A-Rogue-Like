@@ -10,6 +10,9 @@ TagManager:
   - Enemy
   - Spit
   - Health
+  - Wall
+  - Boss
+  - bossBullet
   layers:
   - Default
   - TransparentFX
@@ -19,9 +22,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Spit
+  - Boss
+  - BossFire
   - 
   - 
   - 

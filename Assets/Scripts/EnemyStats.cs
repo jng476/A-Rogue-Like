@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour {
 
-	public int enemyHealth = 1; //Enemies Health.
-	// Use this for initialization
-	void Start () {
-		enemyHealth = 3; //Sets Health to 3.
-	}
+	public int enemyHealth; //Enemies Health.
+
 
 	//Checks if the Enemy is dead.
 	void Update () {

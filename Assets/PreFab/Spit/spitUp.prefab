@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 114430759512934150}
   - component: {fileID: 61858802074760556}
   - component: {fileID: 114466292768082768}
-  m_Layer: 0
+  - component: {fileID: 114435578858717074}
+  m_Layer: 8
   m_Name: spitUp
   m_TagString: Spit
   m_Icon: {fileID: 0}
@@ -101,6 +102,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 2}
+--- !u!114 &114435578858717074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942526849192148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a57f522e5424b4bbff55293e65b8b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114466292768082768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16515d9b10d6f74b8a86810b7beb600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
 --- !u!212 &212829328124598398
 SpriteRenderer:
   m_ObjectHideFlags: 1

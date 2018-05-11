@@ -70,7 +70,6 @@ public class EnemyMovement : MonoBehaviour {
 			moveVertical = 0;
 		}
 		//Sets the movement speed and moves the enemy. 
-		Vector2 movement = new Vector2 (Mathf.Round(moveHorizontal), Mathf.Round(moveVertical));
 		enemy.velocity = new Vector2(moveHorizontal*speed, moveVertical*speed);
 
 	}

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BatFire : MonoBehaviour {
 
 	public GameObject bullet; // Gets Projectile.
-	Transform rightPos, leftPos, upPos, downPos; //Gets where the position of where the projectile will fire.
 	public float fireGap ; //Delay between firing.
 	private float timestamp; //A timestamp for the delay.
 	GameObject player;
@@ -15,10 +14,6 @@ public class BatFire : MonoBehaviour {
 	Vector3 spawn = new Vector3 (2, 0, 0); //Where the Enemy Initially Spawned.
 	//initialization
 	void Start () {
-		rightPos = transform.Find ("BulletRight"); //Finds Transforms.
-		leftPos = transform.Find ("BulletLeft");
-		upPos = transform.Find ("BulletUp");
-		downPos = transform.Find ("BulletDown");
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
@@ -41,38 +36,16 @@ public class BatFire : MonoBehaviour {
 	void FireLocation() {
 			xSpeed = (player.transform.position.x - this.transform.position.x) / 2;
 			ySpeed = (player.transform.position.y - this.transform.position.y) / 2;
-			int direction = 0; 
-			if (xSpeed > ySpeed && xSpeed > 0) {
-				direction = 1;
-			} else if (ySpeed > xSpeed && ySpeed > 0) {
-				direction = 2;
-			} else if (xSpeed < ySpeed && xSpeed < 0) {
-				direction = 3;
-			} else if (ySpeed < xSpeed && ySpeed < 0) {
-				direction = 4;
-			}
 
 			//If Right Arrow is pressed Fire right and the delay has passed.
-			if (Time.time >= timestamp && direction == 1) {
-				Fire (rightPos);
+			if (Time.time >= timestamp ) {
+				Fire ();
 			}
-			//If Left Arrow is pressed Fire left and the delay has passed.
-			if (Time.time >= timestamp && direction == 2) {
-				Fire (leftPos);
-			}
-			//If up Arrow is pressed Fire up and the delay has passed.
-			if (Time.time >= timestamp && direction == 3) {
-				Fire (upPos);
-			}
-			//If down Arrow is pressed Fire down and the delay has passed.
-			if (Time.time >= timestamp && direction == 4) {
-				Fire (downPos);
-			}
+			
 	}
 	//Fires the bullet
-	void Fire(Transform pos){
-
-		GameObject newBullet = Instantiate(bullet, pos.position, Quaternion.identity);
+	void Fire(){
+		GameObject newBullet = Instantiate(bullet, new Vector2 (this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
 		spitControl script = newBullet.GetComponent<spitControl> ();
 		script.speed = new Vector2 (xSpeed, ySpeed);
 		timestamp = Time.time + fireGap; //create delay.

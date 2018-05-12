@@ -59,19 +59,17 @@ public class Boss : MonoBehaviour {
 	//Spits eruptions to kill player
 	IEnumerator Volcanic(){
 		phase = 3;
-		//float x = 1;
-		//float y = 0;
-		//change this shit refractor my doggie
 		for(int i = 0; i<4; i++){
-		StartCoroutine (Spiral(new Vector2(1, 0), -0.1f, -0.1f));
-		StartCoroutine (Spiral(new Vector2(0, -1f), -0.1f, 0.1f));
-		StartCoroutine (Spiral(new Vector2(-1f, 0), 0.1f, 0.1f));
-		StartCoroutine (Spiral(new Vector2(0, 1f), 0.1f, -0.1f));
+		StartCoroutine (Spiral(new Vector2(1, 0), -0.1f, -0.1f));//Fires Right spiral
+		StartCoroutine (Spiral(new Vector2(0, -1f), -0.1f, 0.1f));//Fire Downwards Spiral
+		StartCoroutine (Spiral(new Vector2(-1f, 0), 0.1f, 0.1f));//Fires Left Spiral
+		StartCoroutine (Spiral(new Vector2(0, 1f), 0.1f, -0.1f));//Fires Upwards Spiral
 		yield return new WaitForSeconds (6);
 		}
 		phase = 1;
 	}
 
+	//Shoots a Spiral of bullets
 	IEnumerator Spiral(Vector2 pos, float changeX, float changeY){
 		for (int i = 0; i < 10; i++) {
 			Shoot (pos, pos.x*1.5f, pos.y*1.5f);
@@ -81,11 +79,13 @@ public class Boss : MonoBehaviour {
 		}
 	}
 
+	//Shoots the bullet and sets a speed
 	void Shoot(Vector2 pos, float x, float y){
 		GameObject newBullet = Instantiate (bossBullet, pos, Quaternion.identity);
 		spitControl script = newBullet.GetComponent<spitControl> ();
 		script.speed = new Vector2 (x*speed, y*speed);
 	}
+	//If the boss hits the player or a wall stop.
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag == "Wall" || col.gameObject.tag == "Player") {
 			boss.velocity = new Vector2 (0, 0);
@@ -101,7 +101,9 @@ public class Boss : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-
-		Instantiate (ladder, new Vector2 (0, 0), Quaternion.identity);
+		EnemyStats script = this.GetComponent<EnemyStats> ();
+		if (script.enemyHealth == 0) {
+			Instantiate (ladder, new Vector2 (0, 0), Quaternion.identity);
+		}
 	}
 }

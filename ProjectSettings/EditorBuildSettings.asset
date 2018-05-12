@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Winning.unity
     guid: 45f958f9489f9804087f57b6b4cf0040
+  - enabled: 1
+    path: Assets/_Scenes/Credits.unity
+    guid: c07d5e44e4385814e8382fb4e92477e4

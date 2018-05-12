@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IgnoreBoss : MonoBehaviour {
+public class IgnoreEnemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

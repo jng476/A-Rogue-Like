@@ -26,6 +26,12 @@ public class EnemyMovement : MonoBehaviour {
 			enemy.velocity = new Vector2 (0, 0);
 			enemy.transform.position = spawn;
 		}
+
+		if (player.transform.position.x > enemy.transform.position.x) {
+			enemy.transform.localRotation = Quaternion.Euler (0, 180, 0);
+		} else {
+			enemy.transform.localRotation = Quaternion.Euler (0, 0, 0);
+		}
 	}
 
 	//Checks if the Player is in the same room as the Enemy.

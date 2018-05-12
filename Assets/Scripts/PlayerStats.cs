@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	IEnumerator knockBack(){
-		player.velocity = new Vector2 (-0.5f, 0);
+		player.velocity = new Vector2 (-2.5f, 0);
 		yield return new WaitForSeconds (0.5f);
 		player.velocity = new Vector2 (0, 0);
 	}

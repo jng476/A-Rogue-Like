@@ -1,14 +1,16 @@
 fileFormatVersion: 2
-guid: a9e919d3a495cf840adc749ba089ddc8
-timeCreated: 1526148387
+guid: 9d8f5ff942b4d134f88bcef61974b700
+timeCreated: 1526220245
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: boss (1)_0
-    21300002: boss (1)_1
-    21300004: boss (1)_2
-    21300006: boss (1)_3
-    21300008: boss (1)_4
+    21300000: boss_0
+    21300002: boss_1
+    21300004: boss_2
+    21300006: boss_3
+    21300008: boss_4
+    21300010: boss_5
+    21300012: boss_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -135,7 +137,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss (1)_0
+      name: boss_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 455
+        width: 124
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: boss_1
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 455
+        width: 124
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: boss_2
       rect:
         serializedVersion: 2
         x: 38
@@ -149,7 +179,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boss (1)_1
+      name: boss_3
       rect:
         serializedVersion: 2
         x: 242
@@ -163,7 +193,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boss (1)_2
+      name: boss_4
       rect:
         serializedVersion: 2
         x: 38
@@ -177,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boss (1)_3
+      name: boss_5
       rect:
         serializedVersion: 2
         x: 39
@@ -191,7 +221,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: boss (1)_4
+      name: boss_6
       rect:
         serializedVersion: 2
         x: 104

@@ -10,10 +10,11 @@ public class Boss : MonoBehaviour {
 	int phase = 1;
 	float speed = 1.5f;
 	public GameObject ladder;
-
+	Animator anime;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
+		anime = GetComponent<Animator> ();
 		boss = GetComponent<Rigidbody2D>();
 		StartCoroutine(Tactics ());
 	}
@@ -26,6 +27,7 @@ public class Boss : MonoBehaviour {
 		else if (goAgain == true && boss.transform.position.x == 0 && boss.transform.position.y == 0) { 
 			boss.transform.position = Vector2.MoveTowards (new Vector2(boss.transform.position.x, boss.transform.position.y), new Vector2 (0, 0), 3 * Time.deltaTime);
 			if (phase == 2) {
+				anime.SetInteger ("phase", 2);
 				StartCoroutine (Volcanic ());
 			}
 			if (phase == 1) {
@@ -40,9 +42,11 @@ public class Boss : MonoBehaviour {
 		phase = 3;
 		for (int i = 0; i < 4; i++) {
 			yield return new WaitForSeconds (3);
+			anime.SetInteger ("phase", 1);
 			Charge ();
 		}
 		yield return new WaitForSeconds (3);
+		anime.SetInteger ("phase", 0);
 		goAgain = true;
 		phase = 2;
 	}
@@ -66,6 +70,7 @@ public class Boss : MonoBehaviour {
 		StartCoroutine (Spiral(new Vector2(0, 1f), 0.1f, -0.1f));//Fires Upwards Spiral
 		yield return new WaitForSeconds (6);
 		}
+		anime.SetInteger ("phase", 0);
 		phase = 1;
 	}
 

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114172450799022648}
   - component: {fileID: 114261709067238528}
   m_Layer: 10
-  m_Name: BatBullet
+  m_Name: Bat Bullet
   m_TagString: Spit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

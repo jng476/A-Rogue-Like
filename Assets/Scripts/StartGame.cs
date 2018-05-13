@@ -59,12 +59,10 @@ public class StartGame : MonoBehaviour {
 				//Checks if direction has been taken.
 				for (int j = 0; j < currentdoors.Length; j++) {
 					if (dir == currentdoors[j]) {
-						Debug.Log("This Direction has been taken" + dir);
 						dirTaken = true;
 					}
 				}
 			} while(dirTaken != false); //If directions taken do again and pick another.
-			Debug.Log("This the direction we have taken" + dir);
 			currentdoors[counter] = dir; //Sets Door Direction.
 			counter++; 
 			Create_Door (dir, pos); //Creates door.
@@ -141,29 +139,24 @@ public class StartGame : MonoBehaviour {
 			}
 
 		}
-		Debug.Log (roomPos[space]);
 		Instantiate (Ladder, new Vector3 (roomPos [space].x + 1f, roomPos [space].y, roomPos [space].z +1), Quaternion.identity);
 
 	}
 	//Create enemies
 	void CreateEnemies(){
-		for (int num = 1; num < roomPos.Length - 1; num++) {
-			Debug.Log("First Room " + roomPos [1].x);
-			int amountOfEnemies = Random.Range (1, 4);
+		for (int num = 1; num < roomPos.Length - 2; num++) {
+			Debug.Log ("Room Position " + roomPos [num]);
+			int amountOfEnemies = Random.Range (0, 5);
 			for (int i = 1; i < amountOfEnemies; i++) {
 				float randomX = Random.Range (roomPos [num].x - 2, roomPos [num].x + 2);
 				float randomy = Random.Range (roomPos [num].y - 2, roomPos [num].y + 2);
 				GameObject newEnemy = Instantiate(Enemy[0], new Vector3(randomX, randomy, 0), Quaternion.identity);
-				Debug.Log ("Created New Enemy");
+				Debug.Log ("Created New Enemy at " + roomPos[num]);
 				EnemyMovement script = newEnemy.GetComponent<EnemyMovement> ();
 				script.SetRoom (new Vector3(roomPos [num].x, roomPos [num].y, roomPos [num].z));
 				script.SetSpawn (new Vector3(randomX, randomy, 0));
 			}
 		}
 	}
-
-	void BossBattle(){
-
-
-	}
+		
 }

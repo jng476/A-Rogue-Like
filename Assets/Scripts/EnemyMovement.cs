@@ -9,8 +9,8 @@ public class EnemyMovement : MonoBehaviour {
 	float moveHorizontal = 0; //Enemy Moves Horizontal
 	float moveVertical = 0; //Enemy Moves Vertical
 	GameObject player; //Find Player
-	Vector3 room = new Vector3 (0, 0, 0); //Which Room the Enemy Belongs to.
-	Vector3 spawn = new Vector3 (2, 0, 0); //Where the Enemy Initially Spawned.
+	Vector3 room; //Which Room the Enemy Belongs to.
+	Vector3 spawn; //Where the Enemy Initially Spawned.
 
 	//Gets component of the Enemy
 	void Start(){

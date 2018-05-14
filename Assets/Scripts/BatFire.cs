@@ -52,4 +52,9 @@ public class BatFire : MonoBehaviour {
 		Debug.Log("Time Stamp: " + timestamp);
 		Debug.Log ("Time: " + Time.time);
 	}
+
+	public void SetRoom(Vector3 spawnRoom){
+		room = spawnRoom;
+
+	}
 }

@@ -150,11 +150,17 @@ public class StartGame : MonoBehaviour {
 			for (int i = 1; i < amountOfEnemies; i++) {
 				float randomX = Random.Range (roomPos [num].x - 2, roomPos [num].x + 2);
 				float randomy = Random.Range (roomPos [num].y - 2, roomPos [num].y + 2);
-				GameObject newEnemy = Instantiate(Enemy[0], new Vector3(randomX, randomy, 0), Quaternion.identity);
+				int enemyType = Random.Range (0, 2);
+				GameObject newEnemy = Instantiate(Enemy[enemyType], new Vector3(randomX, randomy, 0), Quaternion.identity);
 				Debug.Log ("Created New Enemy at " + roomPos[num]);
-				EnemyMovement script = newEnemy.GetComponent<EnemyMovement> ();
-				script.SetRoom (new Vector3(roomPos [num].x, roomPos [num].y, roomPos [num].z));
-				script.SetSpawn (new Vector3(randomX, randomy, 0));
+				if (enemyType == 0) {
+					EnemyMovement script = newEnemy.GetComponent<EnemyMovement> ();
+					script.SetRoom (new Vector3 (roomPos [num].x, roomPos [num].y, roomPos [num].z));
+					script.SetSpawn (new Vector3 (randomX, randomy, 0));
+				} else {
+					BatFire script = newEnemy.GetComponent<BatFire> ();
+					script.SetRoom (roomPos [num]);
+				}
 			}
 		}
 	}

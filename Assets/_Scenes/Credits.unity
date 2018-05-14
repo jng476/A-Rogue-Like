@@ -360,8 +360,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Josh Ng\n\nJosh Ng\n\nJosh Ng\n\nSheldon Hearn, Gizem Coban, Josh Feenie,
     Ryan Shearer\n\nSheldon Hearn, Ryan Shearer\n\nKaylyn Dingwall\n\nTrack- Forever
-    pit Artist- Dexter Britain \n\nTrack - Contamination Artist - purpleplanetmusic\n\nTrack
-    - Farewell Artist - WhiteSand(Youtube)\n\nFamily and Friend"
+    pit\nArtist- Dexter Britain \n\nTrack - Contamination \nArtist - purpleplanetmusic\n\nTrack
+    - Farewell\nArtist - WhiteSand(Youtube)\n\nBack In the Saddle \nArtist - Sheldon
+    Hearn\n\nFamily and Friend"
 --- !u!222 &1553563650
 CanvasRenderer:
   m_ObjectHideFlags: 0

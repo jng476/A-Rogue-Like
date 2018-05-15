@@ -101,10 +101,11 @@ public class StartGame : MonoBehaviour {
 		destroy_Objects ("Ladder");
 		destroy_Objects ("Enemy");
 		level++;
-		if (level == 5) {
+		if (level == 10) {
+			destroy_Objects ("Player");
 			SceneManager.LoadScene ("Winning");
 		}
-		else if (level < 4) {
+		else if (level < 9) {
 			Create_Level (); //Creates new level.
 		} else {
 			Instantiate (room, new Vector2 (0, 0), Quaternion.identity);

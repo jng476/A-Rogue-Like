@@ -21,9 +21,11 @@ public class Boss : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//moves to the center ready for phase 2
 		if (goAgain == true && boss.transform.position.x != 0 && boss.transform.position.y !=0) {
 			boss.transform.position = Vector2.MoveTowards (new Vector2 (boss.transform.position.x, boss.transform.position.y), new Vector2 (0, 0), 3 * Time.deltaTime);
 		}
+		//starts phase 2 then to phase 1
 		else if (goAgain == true && boss.transform.position.x == 0 && boss.transform.position.y == 0) { 
 			boss.transform.position = Vector2.MoveTowards (new Vector2(boss.transform.position.x, boss.transform.position.y), new Vector2 (0, 0), 3 * Time.deltaTime);
 			if (phase == 2) {
@@ -56,8 +58,8 @@ public class Boss : MonoBehaviour {
 
 		float xSpeed = (player.transform.position.x - this.transform.position.x);
 		float ySpeed = (player.transform.position.y - this.transform.position.y);
-		float legolas = Mathf.Sqrt (xSpeed * xSpeed + ySpeed * ySpeed); //legolas saved the day. 
-		boss.velocity = new Vector2(xSpeed/legolas*speed, ySpeed/legolas*speed);
+		float realspeed = Mathf.Sqrt (xSpeed * xSpeed + ySpeed * ySpeed); 
+		boss.velocity = new Vector2(xSpeed/realspeed*speed, ySpeed/realspeed*speed);
 	}
 
 	//Spits eruptions to kill player
@@ -97,16 +99,17 @@ public class Boss : MonoBehaviour {
 		}
 
 	}
-
+	//Stops if the player is still touching.
 	void OnCollisionStay2D(Collision2D col){
-		if ( col.gameObject.tag == "Player") {
+		if (col.gameObject.tag == "Player") {
 			boss.velocity = new Vector2 (0, 0);
 		}
 
 	}
-
+	//When the boss is destroyed
 	void OnDestroy(){
 		EnemyStats script = this.GetComponent<EnemyStats> ();
+		//If the boss is at 0 health it will spawn the ladders
 		if (script.enemyHealth == 0) {
 			Instantiate (ladder, new Vector2 (0, 0), Quaternion.identity);
 		}

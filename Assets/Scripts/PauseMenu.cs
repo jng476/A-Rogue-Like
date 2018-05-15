@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour {
 
 
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Escape))
+		if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.P))
 		{
 			if (paused) {
 				Resume ();
@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour {
 
 	}
 }
-
+	//Resume the game
 	public void Resume(){
 
 		pauseMenu.SetActive (false);
@@ -29,20 +29,20 @@ public class PauseMenu : MonoBehaviour {
 		paused = false;
 	}
 
-
+	//pauses game
 	void Pause(){
 		pauseMenu.SetActive (true);
 		Time.timeScale = 0;
 		paused = true;
 	}
 
-
+	//Goes to main menu
 	public void Menu(){
 		Time.timeScale = 1;
 		SceneManager.LoadScene ("MainMenu");
 
-
 	}
+	//Quits Game
 	public void Quit(){
 		Application.Quit ();
 

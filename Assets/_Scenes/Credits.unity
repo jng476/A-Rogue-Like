@@ -437,7 +437,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "ProJect Manager \n\nAnimators\n\nProgrammers\n\nGame Testers\n\n\nCode
-    Advisors\n\nArtists\n\nAudio\n\n\n\n\n\n\n\n\nSpecial Thanks"
+    Advisors\n\nArtists\n\nAudio\n\n\n\n\n\n\n\n\n\n\n\nSpecial Thanks"
 --- !u!222 &1603919588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 943fb3543073ab244988c4e4ed6baa74, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

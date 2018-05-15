@@ -101,13 +101,16 @@ public class StartGame : MonoBehaviour {
 		destroy_Objects ("Ladder");
 		destroy_Objects ("Enemy");
 		level++;
+		//winning
 		if (level == 10) {
 			destroy_Objects ("Player");
 			SceneManager.LoadScene ("Winning");
 		}
 		else if (level < 9) {
 			Create_Level (); //Creates new level.
-		} else {
+		}
+		//boss fight
+		else {
 			Instantiate (room, new Vector2 (0, 0), Quaternion.identity);
 			Instantiate (boss, new Vector2 (3, 0), Quaternion.identity);
 		}
@@ -146,19 +149,21 @@ public class StartGame : MonoBehaviour {
 	//Create enemies
 	void CreateEnemies(){
 		for (int num = 1; num < roomPos.Length - 2; num++) {
-			Debug.Log ("Room Position " + roomPos [num]);
 			int amountOfEnemies = Random.Range (0, 5);
 			for (int i = 1; i < amountOfEnemies; i++) {
 				float randomX = Random.Range (roomPos [num].x - 2, roomPos [num].x + 2);
 				float randomy = Random.Range (roomPos [num].y - 2, roomPos [num].y + 2);
 				int enemyType = Random.Range (0, 2);
 				GameObject newEnemy = Instantiate(Enemy[enemyType], new Vector3(randomX, randomy, 0), Quaternion.identity);
-				Debug.Log ("Created New Enemy at " + roomPos[num]);
+				//picks zombie
 				if (enemyType == 0) {
 					EnemyMovement script = newEnemy.GetComponent<EnemyMovement> ();
 					script.SetRoom (new Vector3 (roomPos [num].x, roomPos [num].y, roomPos [num].z));
 					script.SetSpawn (new Vector3 (randomX, randomy, 0));
-				} else {
+
+				}
+				//picks bat
+				else {
 					BatFire script = newEnemy.GetComponent<BatFire> ();
 					script.SetRoom (roomPos [num]);
 				}

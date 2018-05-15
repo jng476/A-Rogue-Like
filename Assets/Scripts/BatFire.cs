@@ -49,10 +49,9 @@ public class BatFire : MonoBehaviour {
 		spitControl script = newBullet.GetComponent<spitControl> ();
 		script.speed = new Vector2 (xSpeed, ySpeed);
 		timestamp = Time.time + fireGap; //create delay.
-		Debug.Log("Time Stamp: " + timestamp);
-		Debug.Log ("Time: " + Time.time);
 	}
 
+	//Sets the room for the bat
 	public void SetRoom(Vector3 spawnRoom){
 		room = spawnRoom;
 

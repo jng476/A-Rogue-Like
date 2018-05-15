@@ -17,7 +17,7 @@ public class Credits : MonoBehaviour {
 	}
 
 	IEnumerator Finished(){
-
+		//go back to main menu when finished
 		yield return new WaitForSeconds (30);
 		SceneManager.LoadScene ("MainMenu");
 

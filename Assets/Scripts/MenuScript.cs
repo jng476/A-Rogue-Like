@@ -14,22 +14,22 @@ public class MenuScript : MonoBehaviour {
 	public void Exit () {
 		Application.Quit ();
 	}
-
+	//open instructions
 	public void Instructions(){
 		mainMenu.SetActive (false);
 		instructionsMenu.SetActive (true);
 	}
-
+	//close instructions
 	public void Back(){
 		instructionsMenu.SetActive (false);
 		mainMenu.SetActive (true);
 
 	}
-
+	//open credits
 	public void Credits(){
 		SceneManager.LoadScene ("Credits");
 	}
-
+	//open main menu
 	public void MainMenu(){
 		SceneManager.LoadScene ("MainMenu");
 	}
